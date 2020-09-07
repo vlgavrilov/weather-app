@@ -1,0 +1,48 @@
+
+<mat-form-field appearance="fill">
+  <mat-label>Favorite hell</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let hell of hells" [value]="hell.value">
+      {{hell.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-tab-group mat-align-tabs="center">
+  <mat-tab label="today"> 
+    <mat-grid-list cols="3" >
+      <mat-grid-tile>
+        <p>now</p>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <p>be nice</p>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <app-weather-card></app-weather-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+
+  </mat-tab>
+  <mat-tab label="for three days"> 
+    <div class="content">
+      <mat-grid-list cols="3" >
+        <mat-grid-tile>
+          <app-weather-card></app-weather-card>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <app-weather-card></app-weather-card>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <app-weather-card></app-weather-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+      <p>infernal cold </p>
+    </div>
+  </mat-tab>
+  <mat-tab label="for ten days"> 
+    <div class="content">
+      <p>infernal cold </p>
+    </div>
+  </mat-tab>
+</mat-tab-group>
