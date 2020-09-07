@@ -11,13 +11,7 @@ import { Input} from '@angular/core';
 export class DayInfoComponent {
   @Input() now;
 
-  // parseDat = JSON.stringify(this.day)
-  // weather:any = {now: {}, day10: {}}
 
   ngOnInit(): void {
-
-// console.log(this.day);
-// console.log(this.weather.now);÷
-
   }
 }
