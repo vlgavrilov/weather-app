@@ -47,16 +47,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WeatherCardComponent } from './weather-card/weather-card.component';
+import { HttpClientModule }   from '@angular/common/http';
+import { DayInfoComponent } from './day-info/day-info.component';
+
 
 @NgModule({
 
   declarations: [
     AppComponent,
-    WeatherCardComponent
+    WeatherCardComponent,
+    DayInfoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     A11yModule,
     ClipboardModule,

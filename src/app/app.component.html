@@ -9,21 +9,11 @@
 </mat-form-field>
 
 <mat-tab-group mat-align-tabs="center">
+
   <mat-tab label="today"> 
-    <mat-grid-list cols="3" >
-      <mat-grid-tile>
-        <p>now</p>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <p>be nice</p>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <app-weather-card></app-weather-card>
-      </mat-grid-tile>
-    </mat-grid-list>
-
-
+    <app-day-info [now] = "now"></app-day-info>
   </mat-tab>
+
   <mat-tab label="for three days"> 
     <div class="content">
       <mat-grid-list cols="3" >
