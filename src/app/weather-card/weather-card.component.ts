@@ -12,11 +12,10 @@ export interface Section {
   styleUrls: ['./weather-card.component.scss']
 })
 export class WeatherCardComponent implements OnChanges {
-  @Input() dayWeatherData;
-  @Input() head;
-
-  dayWeather;
   constructor() { }
+  @Input() dayWeatherData;
+  @Input() head: string;
+  dayWeather;
 
   ngOnChanges(): void {
     this.dayWeather = new Map();

@@ -49,6 +49,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WeatherCardComponent } from './weather-card/weather-card.component';
 import { HttpClientModule }   from '@angular/common/http';
 import { DayInfoComponent } from './day-info/day-info.component';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -107,6 +108,7 @@ import { DayInfoComponent } from './day-info/day-info.component';
     OverlayModule,
     PortalModule,
     ScrollingModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

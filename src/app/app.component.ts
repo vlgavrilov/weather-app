@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { HttpService} from './http.service';
 import { environment } from '../environments/env';
 
@@ -121,12 +121,12 @@ interface Weather {
   styleUrls: ['./app.component.scss'],
   providers: [HttpService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   hells: Hell[] = [
     {value: 'inferno-0', viewValue: 'inferno'},
     {value: 'inferno-1', viewValue: 'inferno'},
-    {value: 'inferno-1', viewValue: 'Taganrog'},
-    {value: 'inferno-2', viewValue: 'inferno'}
+    {value: 'inferno-3', viewValue: 'Taganrog'},
+    {value: 'inferno-4', viewValue: 'inferno'}
   ];
 
 
@@ -137,11 +137,28 @@ export class AppComponent {
   threeDaysWeatherData: Weather[] = environment.mockDataDay10.data.slice(0, 3);
   tenDaysWeatherData: Weather[] = environment.mockDataDay10.data.slice(0, 10);
 
-//
-  // ngOnInit(){
-  //   this.httpService.getData("6a091de9d53deee7144cb4f5acea2004").subscribe(([data1, data2]) =>{
-  //     this.now=data1;
-  //     this.day10=data2;
-  //   })
+  selectedFood1: string;
+  // onFoodSelection1(q): void {
+  //   this.httpService
+  //     .getTestCashe(q)
+  //     .subscribe((data1) => {
+  //       console.log(data1);
+  //     });
   // }
+
+//
+//   ngOnInit(){
+//     this.httpService.getData("6a091de9d53deee7144cb4f5acea2004").subscribe(([data1, data2]) =>{
+//       this.now=data1;
+//       this.day10=data2;
+//     })
+//   }
+  ngOnInit(): void{
+    this.httpService
+      .getTestCashe('6a091de9d53deee7144cb4f5acea2004')
+      .subscribe(([data1, data2]) => {
+      console.log(data1);
+      console.log(data2);
+    });
+  }
 }
