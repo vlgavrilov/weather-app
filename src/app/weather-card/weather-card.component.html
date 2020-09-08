@@ -1,11 +1,9 @@
 <mat-card style="background-color:#e6fff885; ">
     <mat-list>
-        <div mat-subheader>Details</div>
-        <mat-list-item *ngFor="let folder of folders">
-          <mat-icon mat-list-icon>folder</mat-icon>
-          <div mat-line>{{folder.name}}</div>
-          <div mat-line> {{folder.updated }} </div>
-        </mat-list-item>
+        <div mat-subheader>{{head}}</div>
+      <mat-list-item  *ngFor="let item of dayWeather | keyvalue">
+        {{item.value + " -  " + item.key}}
+      </mat-list-item>
       </mat-list>
 </mat-card>
 

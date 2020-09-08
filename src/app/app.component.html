@@ -10,29 +10,30 @@
 
 <mat-tab-group mat-align-tabs="center">
 
-  <mat-tab label="today"> 
-    <app-day-info [now] = "now"></app-day-info>
+  <mat-tab label="today">
+    <app-day-info
+      [currentWeatherData] = "currentWeatherData"
+      [todayWeatherData]="todayWeatherData"
+    >
+    </app-day-info>
   </mat-tab>
 
-  <mat-tab label="for three days"> 
+  <mat-tab label="for three days">
     <div class="content">
       <mat-grid-list cols="3" >
-        <mat-grid-tile>
-          <app-weather-card></app-weather-card>
-        </mat-grid-tile>
-        <mat-grid-tile>
-          <app-weather-card></app-weather-card>
-        </mat-grid-tile>
-        <mat-grid-tile>
-          <app-weather-card></app-weather-card>
+        <mat-grid-tile *ngFor="let item of threeDaysWeatherData">
+          <app-weather-card [dayWeatherData]="item" [head]="item.datetime"></app-weather-card>
         </mat-grid-tile>
       </mat-grid-list>
-      <p>infernal cold </p>
     </div>
   </mat-tab>
-  <mat-tab label="for ten days"> 
+  <mat-tab label="for ten days">
     <div class="content">
-      <p>infernal cold </p>
+      <mat-grid-list cols="3" >
+        <mat-grid-tile *ngFor="let item of tenDaysWeatherData">
+          <app-weather-card [dayWeatherData]="item" [head]="item.datetime"></app-weather-card>
+        </mat-grid-tile>
+      </mat-grid-list>
     </div>
   </mat-tab>
 </mat-tab-group>
