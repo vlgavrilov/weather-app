@@ -12,6 +12,9 @@ export class DayInfoComponent implements OnChanges{
   @Input() currentWeatherData;
   @Input() todayWeatherData;
 
+  asIsOrder(a, b): number {
+    return 1;
+  }
   currentWeather;
   todayWeather;
   ngOnChanges(): void{
