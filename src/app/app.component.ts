@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { HttpService} from './http.service';
 import { environment } from '../environments/env';
+import {FormControl} from '@angular/forms';
 
 
 interface Hell {
@@ -137,28 +138,27 @@ export class AppComponent implements OnInit{
   threeDaysWeatherData: Weather[] = environment.mockDataDay10.data.slice(0, 3);
   tenDaysWeatherData: Weather[] = environment.mockDataDay10.data.slice(0, 10);
 
-  selectedFood1: string;
-  // onFoodSelection1(q): void {
-  //   this.httpService
-  //     .getTestCashe(q)
-  //     .subscribe((data1) => {
-  //       console.log(data1);
-  //     });
-  // }
+  onFoodSelection1(q): void {
+    this.httpService
+      .getTestCache(q)
+      .subscribe(([data1, data2]) => {
+        console.log(data1);
+        console.log(data2);
+      });
+  }
+  compareObjects(o1: any, o2: any): boolean {
+    return o1.name === o2.name && o1.id === o2.id;
+  }
 
-//
-//   ngOnInit(){
-//     this.httpService.getData("6a091de9d53deee7144cb4f5acea2004").subscribe(([data1, data2]) =>{
-//       this.now=data1;
-//       this.day10=data2;
-//     })
-//   }
   ngOnInit(): void{
     this.httpService
-      .getTestCashe('6a091de9d53deee7144cb4f5acea2004')
+      .getTestCache('london')
       .subscribe(([data1, data2]) => {
       console.log(data1);
       console.log(data2);
     });
   }
+}
+function compareFn(v1: Hell, v2: Hell): boolean {
+  return v1 && v2 ? v1.value === v2.value : v1 === v2;
 }

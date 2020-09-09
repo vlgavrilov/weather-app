@@ -2,8 +2,10 @@
 <mat-form-field>
   <mat-label>Favorite hell</mat-label>
   <mat-select
+    [compareWith]="compareObjects"
+    [(ngModel)]="hells"
     (selectionChange)="onFoodSelection1($event.value)"
-    appearance="fill">
+  >
     <mat-option
       *ngFor="let hell of hells"
       [value]="hell.value">
