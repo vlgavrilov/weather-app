@@ -48,6 +48,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WeatherCardComponent } from './weather-card/weather-card.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NgHttpLoaderModule } from 'ng-http-loader';
 import { DayInfoComponent } from './day-info/day-info.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
@@ -63,6 +64,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    NgHttpLoaderModule.forRoot(),
     BrowserAnimationsModule,
     A11yModule,
     ClipboardModule,

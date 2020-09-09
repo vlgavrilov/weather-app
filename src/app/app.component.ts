@@ -55,65 +55,6 @@ interface Weather {
       'clouds_low': number
     };
 }
-// interface WeatherData10 {
-//   'data': Data10;
-//   'city_name': string;
-//   'lon': number;
-//   'timezone': string;
-//   'lat': number;
-//   'country_code': string;
-//   'state_code': string;
-//
-// }
-
-// interface WeatherData {
-//   [index: number]: {
-//     'rh': number, // !
-//     'pod': string,
-//     'lon': number,
-//     'pres': number,
-//     'timezone': string,
-//     'ob_time': string,
-//     'country_code': string,
-//     'clouds': number, // ! %
-//     'ts': number,
-//     'solar_rad': number,
-//     'state_code': string,
-//     'city_name': string,
-//     'wind_spd': number, // !
-//     'wind_cdir_full': string, // !
-//     'wind_cdir': string,
-//     'slp': number,
-//     'vis': number, // Visibility (default KM).
-//     'h_angle': number,
-//     'sunset': string,
-//     'dni': number,
-//     'dewpt': number,
-//     'snow': number,
-//     'uv': number,
-//     'precip': number, // Liquid equivalent precipitation rate (default mm/hr).
-//     'wind_dir': number,
-//     'sunrise': string,
-//     'ghi': number,
-//     'dhi': number,
-//     'aqi': number,
-//     'lat': number,
-//     'weather': {
-//       'icon': string, // !
-//       'code': number,
-//       'description': string
-//     },
-//     'datetime': string,
-//     'temp': number, // !
-//     'station': string,
-//     'elev_angle': number,
-//     'app_temp': number // !  Apparent/"Feels Like" temperature (default Celcius).
-// };}
-//
-// interface WeatherResponse {
-//    'data': WeatherData;
-//   'count'?: number;
-// }
 
 
 @Component({
@@ -139,16 +80,13 @@ export class AppComponent implements OnInit{
   threeDaysWeatherData: Weather[] = environment.mockDataDay10.data.slice(0, 3);
   tenDaysWeatherData: Weather[] = environment.mockDataDay10.data.slice(0, 10);
 
-  onFoodSelection1(q): void {
+  onTownSelection(q): void {
     this.httpService
       .getTestCache(q)
       .subscribe(([data1, data2]) => {
         console.log(data1);
         console.log(data2);
       });
-  }
-  compareObjects(o1: any, o2: any): boolean {
-    return o1.name === o2.name && o1.viewValue === o2.viewValue;
   }
 
 
@@ -160,7 +98,4 @@ export class AppComponent implements OnInit{
       console.log(data2);
     });
   }
-}
-function compareFn(v1: Hell, v2: Hell): boolean {
-  return v1 && v2 ? v1.value === v2.value : v1 === v2;
 }

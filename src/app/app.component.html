@@ -3,8 +3,9 @@
   <mat-label>Favorite hell</mat-label>
   <mat-select
     [formControl]="selected"
-    (selectionChange)="onFoodSelection1($event.value)"
+    (selectionChange)="onTownSelection($event.value)"
   >
+
     <mat-option
       *ngFor="let hell of hells"
       [value]="hell.value">
@@ -16,6 +17,7 @@
 <mat-tab-group mat-align-tabs="center">
 
   <mat-tab label="today">
+    <ng-http-loader></ng-http-loader>
     <app-day-info
       [currentWeatherData] = "currentWeatherData"
       [todayWeatherData]="todayWeatherData"
@@ -24,6 +26,7 @@
   </mat-tab>
 
   <mat-tab label="for three days">
+
     <div class="content">
       <mat-grid-list cols="3" rowHeight="400px" >
         <mat-grid-tile *ngFor="let item of threeDaysWeatherData">
