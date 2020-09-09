@@ -17,6 +17,7 @@ export class DayInfoComponent implements OnChanges{
   asIsOrder(a, b): number {
     return 1;
   }
+
   ngOnChanges(): void{
     this.currentWeather = new Map();
     this.currentWeather.set('Wind speed', this.currentWeatherData.wind_spd);

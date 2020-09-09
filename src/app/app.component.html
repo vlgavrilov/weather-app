@@ -1,4 +1,4 @@
-<div class="container">
+
 <mat-form-field>
   <mat-label>Favorite hell</mat-label>
   <mat-select
@@ -14,8 +14,8 @@
   </mat-select>
 </mat-form-field>
 
-<mat-tab-group mat-align-tabs="center">
 
+<mat-tab-group mat-align-tabs="center">
   <mat-tab label="today">
     <ng-http-loader></ng-http-loader>
     <app-day-info
@@ -26,24 +26,20 @@
   </mat-tab>
 
   <mat-tab label="for three days">
-
-    <div class="content">
       <mat-grid-list cols="3" rowHeight="400px" >
         <mat-grid-tile *ngFor="let item of threeDaysWeatherData">
           <app-weather-card [dayWeatherData]="item" [head]="item.datetime">
           </app-weather-card>
         </mat-grid-tile>
       </mat-grid-list>
-    </div>
   </mat-tab>
+
   <mat-tab label="for ten days">
-    <div class="content">
       <mat-grid-list cols="3" rowHeight="400px"  >
         <mat-grid-tile *ngFor="let item of tenDaysWeatherData">
           <app-weather-card [dayWeatherData]="item" [head]="item.datetime"></app-weather-card>
         </mat-grid-tile>
       </mat-grid-list>
-    </div>
-  </mat-tab>
+    </mat-tab>
+
 </mat-tab-group>
-</div>
