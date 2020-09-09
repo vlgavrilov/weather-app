@@ -11,12 +11,12 @@ import { Input} from '@angular/core';
 export class DayInfoComponent implements OnChanges{
   @Input() currentWeatherData;
   @Input() todayWeatherData;
+  currentWeather;
+  todayWeather;
 
   asIsOrder(a, b): number {
     return 1;
   }
-  currentWeather;
-  todayWeather;
   ngOnChanges(): void{
     this.currentWeather = new Map();
     this.currentWeather.set('Wind speed', this.currentWeatherData.wind_spd);

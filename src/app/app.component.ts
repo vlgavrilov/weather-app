@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import { HttpService} from './http.service';
+import { Component, OnInit } from '@angular/core';
+import { HttpService } from './http.service';
 import { environment } from '../environments/env';
-import {FormControl} from '@angular/forms';
+import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 
 
 interface Hell {
@@ -130,6 +130,7 @@ export class AppComponent implements OnInit{
     {value: 'inferno-4', viewValue: 'inferno'}
   ];
 
+  selected = new FormControl('inferno-0');
 
   constructor(private httpService: HttpService){}
 
@@ -147,8 +148,9 @@ export class AppComponent implements OnInit{
       });
   }
   compareObjects(o1: any, o2: any): boolean {
-    return o1.name === o2.name && o1.id === o2.id;
+    return o1.name === o2.name && o1.viewValue === o2.viewValue;
   }
+
 
   ngOnInit(): void{
     this.httpService
