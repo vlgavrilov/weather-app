@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from './http.service';
-import { environment } from '../environments/env';
-import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import {FormControl} from '@angular/forms';
 
 
 interface Hell {
@@ -56,6 +55,21 @@ interface Weather {
     };
 }
 
+enum Cities{
+  Taganrog = 'Taganrog',
+  New_Berlin = 'New Berlin',
+  Moscow = 'Moscow',
+  London = 'London',
+  Paris = 'Paris',
+}
+
+enum CitiesId{
+  Taganrog = '484907',
+  New_Berlin = '4245481',
+  Moscow = '5202009',
+  London = '4119617',
+  Paris = '4246659',
+}
 
 @Component({
   selector: 'app-root',
@@ -65,37 +79,39 @@ interface Weather {
 })
 export class AppComponent implements OnInit{
   hells: Hell[] = [
-    {value: 'inferno-0', viewValue: 'inferno'},
-    {value: 'inferno-1', viewValue: 'inferno'},
-    {value: 'inferno-3', viewValue: 'Taganrog'},
-    {value: 'inferno-4', viewValue: 'inferno'}
-  ];
+    {value: '4119617', viewValue: 'London'},
+    {value: '4245481', viewValue: 'New Berlin'},
+    {value: '484907', viewValue: 'Taganrog'},
+    {value: '4246659', viewValue: 'Paris'},
+    {value: '5202009', viewValue: 'Moscow'},
 
-  selected = new FormControl('inferno-0');
+  ];
+  DEFAULT_CITY = CitiesId.Taganrog;
+
+  selected = new FormControl(this.DEFAULT_CITY);
 
   constructor(private httpService: HttpService){}
 
-  currentWeatherData: Weather = environment.mockDataNow.data[0];
-  todayWeatherData: Weather = environment.mockDataDay10.data[0];
-  threeDaysWeatherData: Weather[] = environment.mockDataDay10.data.slice(0, 3);
-  tenDaysWeatherData: Weather[] = environment.mockDataDay10.data.slice(0, 10);
+  currentWeatherData: Weather;
+  todayWeatherData: Weather;
+  threeDaysWeatherData: Weather[];
+  tenDaysWeatherData: Weather[];
+
+
 
   onTownSelection(q): void {
     this.httpService
-      .getTestCache(q)
+      .getWeather(q)
       .subscribe(([data1, data2]) => {
-        console.log(data1);
-        console.log(data2);
+        this.currentWeatherData = data1.data[0];
+        this.todayWeatherData = data2.data[0];
+        this.threeDaysWeatherData = data2.data.slice(0, 3);
+        this.tenDaysWeatherData = data2.data.slice(0, 10);
       });
   }
 
 
   ngOnInit(): void{
-    this.httpService
-      .getTestCache('london')
-      .subscribe(([data1, data2]) => {
-      console.log(data1);
-      console.log(data2);
-    });
+    this.onTownSelection(this.DEFAULT_CITY);
   }
 }

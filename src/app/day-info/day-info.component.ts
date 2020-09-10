@@ -20,10 +20,10 @@ export class DayInfoComponent implements OnChanges{
 
   ngOnChanges(): void{
     this.currentWeather = new Map<string, string | number>();
-    this.currentWeather.set('Wind speed', this.currentWeatherData.wind_spd);
-    this.currentWeather.set('Relative humidity', this.currentWeatherData.rh);
-    this.currentWeather.set('Cloud coverage', this.currentWeatherData.clouds);
-    this.currentWeather.set('Temperature', this.currentWeatherData.temp);
-    this.currentWeather.set('"Feels Like" temperature ', this.currentWeatherData.app_temp);
+    this.currentWeather.set('Wind speed', this.currentWeatherData?.wind_spd);
+    this.currentWeather.set('Relative humidity', this.currentWeatherData?.rh);
+    this.currentWeather.set('Cloud coverage', this.currentWeatherData?.clouds);
+    this.currentWeather.set('Temperature', this.currentWeatherData?.temp);
+    this.currentWeather.set('"Feels Like" temperature ', this.currentWeatherData?.app_temp);
   }
 }

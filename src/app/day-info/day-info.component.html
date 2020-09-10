@@ -1,17 +1,19 @@
-<mat-grid-list cols="3" rowHeight="400px">
-  <mat-grid-tile  >
-    <mat-list role="list">
-      <div mat-subheader>Weather now</div>
-      <mat-list-item  *ngFor="let item of currentWeather | keyvalue: asIsOrder">
-        {{item.value + " -  " + item.key}}
-      </mat-list-item>
-    </mat-list>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <p>Wellcome to {{currentWeatherData.city_name}}</p>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <app-weather-card [head]="'Weather today'" [dayWeatherData]="todayWeatherData"
-    ></app-weather-card>
-  </mat-grid-tile>
-</mat-grid-list>
+<ng-template [ngIf]="currentWeatherData">
+  <mat-grid-list cols="3" rowHeight="400px">
+    <mat-grid-tile  >
+      <mat-list role="list">
+        <div mat-subheader>Weather now</div>
+        <mat-list-item  *ngFor="let item of currentWeather | keyvalue: asIsOrder">
+          {{item.value + " -  " + item.key}}
+        </mat-list-item>
+      </mat-list>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <p>Wellcome to {{currentWeatherData?.city_name}}</p>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <app-weather-card [head]="'Weather today'" [dayWeatherData]="todayWeatherData"
+      ></app-weather-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</ng-template>

@@ -39,6 +39,7 @@ speed-measure-plugin*.json
 npm-debug.log
 yarn-error.log
 src/environments/env.ts
+src/environments/env.prod.ts
 testem.log
 /typings
 

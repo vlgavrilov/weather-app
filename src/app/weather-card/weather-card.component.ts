@@ -23,11 +23,11 @@ export class WeatherCardComponent implements OnChanges {
 
   ngOnChanges(): void {
     this.dayWeather = new Map<string, string | number>();
-    this.dayWeather.set('Wind speed', this.dayWeatherData.wind_spd);
-    this.dayWeather.set('Relative humidity', this.dayWeatherData.rh);
-    this.dayWeather.set('Cloud coverage', this.dayWeatherData.clouds);
-    this.dayWeather.set('Maximum temperature ', this.dayWeatherData.app_max_temp);
-    this.dayWeather.set('Temperature', this.dayWeatherData.temp);
-    this.dayWeather.set('Minimum temperature', this.dayWeatherData.min_temp);
+    this.dayWeather.set('Wind speed', this.dayWeatherData?.wind_spd);
+    this.dayWeather.set('Relative humidity', this.dayWeatherData?.rh);
+    this.dayWeather.set('Cloud coverage', this.dayWeatherData?.clouds);
+    this.dayWeather.set('Maximum temperature ', this.dayWeatherData?.app_max_temp);
+    this.dayWeather.set('Temperature', this.dayWeatherData?.temp);
+    this.dayWeather.set('Minimum temperature', this.dayWeatherData?.min_temp);
   }
 }

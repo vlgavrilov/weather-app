@@ -1,9 +1,10 @@
-<mat-card>
-  <mat-list>
-      <div mat-subheader>{{head}}</div>
-    <mat-list-item  *ngFor="let item of dayWeather | keyvalue: asIsOrder">
-      {{item.value + " -  " + item.key}}
-    </mat-list-item>
-    </mat-list>
-</mat-card>
-
+<ng-template [ngIf]="dayWeather">
+  <mat-card>
+    <mat-list>
+        <div mat-subheader>{{head}}</div>
+      <mat-list-item  *ngFor="let item of dayWeather | keyvalue: asIsOrder">
+        {{item.value + " -  " + item.key}}
+      </mat-list-item>
+      </mat-list>
+  </mat-card>
+</ng-template>
