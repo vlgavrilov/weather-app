@@ -11,7 +11,7 @@ import { Input} from '@angular/core';
 export class DayInfoComponent implements OnChanges{
   @Input() currentWeatherData;
   @Input() todayWeatherData;
-  currentWeather;
+  currentWeather: Map<string, string | number>;
   todayWeather;
 
   asIsOrder(a, b): number {
@@ -19,7 +19,7 @@ export class DayInfoComponent implements OnChanges{
   }
 
   ngOnChanges(): void{
-    this.currentWeather = new Map();
+    this.currentWeather = new Map<string, string | number>();
     this.currentWeather.set('Wind speed', this.currentWeatherData.wind_spd);
     this.currentWeather.set('Relative humidity', this.currentWeatherData.rh);
     this.currentWeather.set('Cloud coverage', this.currentWeatherData.clouds);

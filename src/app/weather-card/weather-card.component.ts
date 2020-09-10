@@ -15,14 +15,14 @@ export class WeatherCardComponent implements OnChanges {
   constructor() { }
   @Input() dayWeatherData;
   @Input() head: string;
-  dayWeather;
+  dayWeather: Map<string, string | number>;
 
   asIsOrder(a, b): number {
     return 1;
   }
 
   ngOnChanges(): void {
-    this.dayWeather = new Map();
+    this.dayWeather = new Map<string, string | number>();
     this.dayWeather.set('Wind speed', this.dayWeatherData.wind_spd);
     this.dayWeather.set('Relative humidity', this.dayWeatherData.rh);
     this.dayWeather.set('Cloud coverage', this.dayWeatherData.clouds);
