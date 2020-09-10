@@ -3,7 +3,7 @@ import { HttpService } from './http.service';
 import {FormControl} from '@angular/forms';
 
 
-interface Hell {
+interface City {
   value: string;
   viewValue: string;
 }
@@ -78,12 +78,12 @@ enum CitiesId{
   providers: [HttpService]
 })
 export class AppComponent implements OnInit{
-  hells: Hell[] = [
-    {value: '4119617', viewValue: 'London'},
-    {value: '4245481', viewValue: 'New Berlin'},
-    {value: '484907', viewValue: 'Taganrog'},
-    {value: '4246659', viewValue: 'Paris'},
-    {value: '5202009', viewValue: 'Moscow'},
+  cities: City[] = [
+    {value: CitiesId.London, viewValue: Cities.London},
+    {value: CitiesId.New_Berlin, viewValue: Cities.New_Berlin},
+    {value: CitiesId.Taganrog, viewValue: Cities.Taganrog},
+    {value: CitiesId.Paris, viewValue: Cities.Paris},
+    {value: CitiesId.Moscow, viewValue: Cities.Moscow},
 
   ];
   DEFAULT_CITY = CitiesId.Taganrog;

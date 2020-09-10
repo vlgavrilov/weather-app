@@ -1,15 +1,15 @@
 
 <mat-form-field>
-  <mat-label>Favorite hell</mat-label>
+  <mat-label>Select a city</mat-label>
   <mat-select
     [formControl]="selected"
     (selectionChange)="onTownSelection($event.value)"
   >
     <mat-option
-      *ngFor="let hell of hells"
-      [value]="hell.value"
+      *ngFor="let city of cities"
+      [value]="city.value"
     >
-      {{hell.viewValue}}
+      {{city.viewValue}}
     </mat-option>
   </mat-select>
 </mat-form-field>
