@@ -5,10 +5,10 @@
     [formControl]="selected"
     (selectionChange)="onTownSelection($event.value)"
   >
-
     <mat-option
       *ngFor="let hell of hells"
-      [value]="hell.value">
+      [value]="hell.value"
+    >
       {{hell.viewValue}}
     </mat-option>
   </mat-select>
